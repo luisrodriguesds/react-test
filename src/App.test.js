@@ -1,9 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React, {useState} from 'react';
+import EditinPlace, {TextArea} from './EditinPlace.js';
+import './App.css';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+
+function App() {
+  const [name, setName] = useState('Luis');
+  const [name2, setName2] = useState('Rodrigues');
+
+  return (
+    <div className="App">
+     <EditinPlace value={name} viewAs="h1" onChangeValue={setName} />
+     <TextArea value={name2} viewAs="h1" onChangeValue={setName2} />
+     <hr />
+     Name: {name}
+    </div>
+  );
+}
+
+export default App;
